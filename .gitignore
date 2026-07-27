@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Output del build locale
+_site/
+
+# Archivi e file temporanei
+*.zip
+*.tmp
+*.log
+
+# File originali delle foto (pesanti): in repo va solo la versione compressa
+immagini/originali/
+*.CR2
+*.NEF
+*.ARW
+*.tif
+*.tiff
+*.psd

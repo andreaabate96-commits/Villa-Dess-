@@ -1,0 +1,59 @@
+name: Deploy sito su GitHub Pages
+
+# Pubblica il sito a ogni push su main.
+# Prima volta: Settings → Pages → Source: "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # permette il deploy manuale dal tab Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un deploy alla volta; le richieste in coda vengono sostituite dalla più recente.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Pubblica
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Scarica il codice
+        uses: actions/checkout@v4
+
+      - name: Configura Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepara i file da pubblicare
+        # Sito statico: nessuna build. Si copia la root escludendo
+        # i file che non devono finire online.
+        run: |
+          mkdir -p _site
+          rsync -av \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '_site' \
+            --exclude '.gitignore' \
+            --exclude '.editorconfig' \
+            --exclude '.DS_Store' \
+            --exclude '*.md' \
+            ./ _site/
+          # Impedisce a Jekyll di ignorare cartelle e file che iniziano con _
+          touch _site/.nojekyll
+
+      - name: Carica l'artefatto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

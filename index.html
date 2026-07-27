@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Villa Dessì — Casa privata sul mare a Geremeas, Sardegna</title>
+<meta name="description" content="Villa privata a Geremeas, 50 metri dal mare. Tre camere, sei ospiti, accesso privato alla spiaggia. Disponibilità su richiesta.">
+<meta property="og:title" content="Villa Dessì — Geremeas, Sardegna">
+<meta property="og:description" content="Cinquanta metri di macchia mediterranea tra il porticato e la sabbia.">
+<meta property="og:image" content="immagini/hero-villa-mare.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ▼▼▼  MODIFICA SOLO QUESTO BLOCCO  ▼▼▼
+     Qui dentro ci sono tutti i testi, i contatti, i comfort, le tariffe,
+     le recensioni e i nomi dei file delle foto.
+     Le foto vanno caricate nella cartella /immagini con lo stesso nome
+     che vedi qui sotto (oppure cambia qui il nome del file).
+     Se una foto manca, al suo posto compare un segnaposto con la descrizione.
+     ══════════════════════════════════════════════════════════════════════════ -->
+<script>
+const VILLA = {
+
+  /* --- Identità ------------------------------------------------------- */
+  nome: "Villa Dessì",
+  localita: "Geremeas, Sardegna",
+  headline: "Il mare a cinquanta passi",
+  sottotitolo: "Geremeas, Sardegna · 6 ospiti · 3 camere · 2 bagni",
+
+  /* --- Contatti ------------------------------------------------------- */
+  contatti: {
+    email: "info@villadessi.it",
+    telefono: "+39 000 000 0000",
+    whatsapp: "390000000000",            // solo cifre, con prefisso, senza +
+    whatsappTesto: "Buongiorno, scrivo dal sito di Villa Dessì. Vorrei verificare la disponibilità per il periodo:",
+    instagram: "https://instagram.com/",
+    instagramNome: "@villadessi",
+    indirizzo: "Geremeas, Quartu Sant'Elena (CA), Sardegna"
+  },
+
+  /* --- Form: lascia vuoto per usare l'email, oppure incolla qui
+         l'indirizzo Formspree (https://formspree.io/f/xxxxxxx) ---------- */
+  formEndpoint: "",
+
+  /* --- Foto: nome file dentro /immagini + testo alternativo ----------- */
+  foto: {
+    hero:      { file: "immagini/hero-villa-mare.jpg",  alt: "La villa vista dal giardino, con il mare sullo sfondo al tramonto" },
+    soggiorno: { file: "immagini/soggiorno.jpg",        alt: "Soggiorno con divani chiari e porta finestra aperta sul porticato" },
+    camere:    { file: "immagini/camera-vista-mare.jpg",alt: "Camera da letto con lino bianco e finestra sul mare" },
+    porticato: { file: "immagini/porticato.jpg",        alt: "Porticato in ombra con tavolo apparecchiato" },
+    esterni:   { file: "immagini/esterni-barbecue.jpg", alt: "Angolo barbecue nel giardino di macchia mediterranea" },
+    cucina:    { file: "immagini/cucina.jpg",           alt: "Cucina in muratura con piano di lavoro in pietra" },
+    spiaggia:  { file: "immagini/spiaggia-accesso.jpg", alt: "Il sentiero privato che scende alla spiaggia" },
+    luce:      { file: "immagini/vista-orizzonte.jpg",  alt: "L'orizzonte visto dalla villa" }
+  },
+
+  /* --- I tre dati chiave sotto l'introduzione ------------------------- */
+  datiChiave: [
+    { numero: "6",    etichetta: "ospiti" },
+    { numero: "3",    etichetta: "camere, 2 bagni" },
+    { numero: "50 m", etichetta: "dal mare" }
+  ],
+
+  /* --- Esperienze nei dintorni (aggiungi o togli card liberamente) ---- */
+  esperienze: [
+    { titolo: "Le cale a est",        testo: "Da Geremeas la costa si apre in una sequenza di cale raggiungibili in pochi minuti: Torre delle Stelle, Solanas, Cala Regina. Sabbia chiara, fondali bassi, nessuna struttura." },
+    { titolo: "Un giorno in barca",   testo: "Gommone o barca con skipper da Marina di Capitana, a venti minuti. Si esce la mattina presto verso Villasimius e si rientra con la luce lunga del pomeriggio." },
+    { titolo: "Tavoli fuori stagione",testo: "Pesce e vernaccia nelle trattorie di Solanas e Torre delle Stelle, cucina di terra salendo verso Sinnai e Burcei. Prenotiamo noi, se preferite." },
+    { titolo: "Sentieri dei Sette Fratelli", testo: "Mezz'ora di macchina nell'entroterra: leccete, granito e cervi sardi. Il periodo migliore va da ottobre a maggio, presto la mattina." }
+  ],
+
+  /* --- Servizi e comfort inclusi (lista a due colonne) ---------------- */
+  servizi: [
+    "Accesso privato alla spiaggia",
+    "Aria condizionata in tutte le camere",
+    "Wi-Fi in fibra",
+    "Porticato su due lati",
+    "Barbecue in muratura",
+    "Cucina completa, lavastoviglie",
+    "Lavatrice",
+    "Biancheria e asciugamani",
+    "Pulizia finale",
+    "Parcheggio privato coperto",
+    "Doccia esterna",
+    "Zanzariere a tutte le finestre",
+    "Consegna spesa su richiesta",
+    "Pulizie intermedie su richiesta"
+  ],
+
+  /* --- Tariffe stagionali (prezzo a settimana) ----------------------- */
+  tariffe: [
+    { periodo: "Maggio e ottobre",        settimana: "1.400 €", minimo: "3 notti" },
+    { periodo: "Giugno e settembre",      settimana: "1.900 €", minimo: "7 notti" },
+    { periodo: "Luglio",                  settimana: "2.600 €", minimo: "7 notti" },
+    { periodo: "Agosto",                  settimana: "3.200 €", minimo: "7 notti, sabato–sabato" }
+  ],
+  tariffeNota: "Le tariffe comprendono utenze, biancheria e pulizia finale. Tassa di soggiorno esclusa. Per soggiorni lunghi o fuori stagione scriveteci: troviamo la formula giusta.",
+
+  /* --- Testimonianze ------------------------------------------------- */
+  testimonianze: [
+    { testo: "Ci siamo svegliati ogni mattina con la stessa luce sull'acqua e non abbiamo mai sentito il bisogno di prendere la macchina.", nome: "Chiara e Marco", provenienza: "Milano" },
+    { testo: "Due settimane con i bambini piccoli. Il sentiero fino alla spiaggia si fa scalzi, e questo cambia tutto.", nome: "Familie Boersma", provenienza: "Utrecht" },
+    { testo: "Casa curata, silenziosa, senza niente di superfluo. Torneremo a settembre.", nome: "Anne & Lars", provenienza: "Copenaghen" }
+  ],
+
+  /* --- Distanze ------------------------------------------------------ */
+  distanze: [
+    { luogo: "Spiaggia di Geremeas",            valore: "50 m", nota: "sentiero privato, un minuto a piedi" },
+    { luogo: "Minimarket e bar",                valore: "1,2 km", nota: "aperti da maggio a settembre" },
+    { luogo: "Solanas",                         valore: "9 km",  nota: "ristoranti e noleggio barche" },
+    { luogo: "Villasimius",                     valore: "26 km", nota: "porto turistico e cale" },
+    { luogo: "Cagliari",                        valore: "30 km", nota: "centro storico e Poetto" },
+    { luogo: "Aeroporto di Cagliari–Elmas",     valore: "38 km", nota: "circa 40 minuti in auto" }
+  ],
+
+  /* --- Coordinate per il link alle mappe ------------------------------ */
+  mappaLink: "https://www.openstreetmap.org/?mlat=39.1720&mlon=9.3350#map=14/39.1720/9.3350"
+};
+</script>
+<!-- ▲▲▲  FINE DEL BLOCCO DA MODIFICARE  ▲▲▲ -->
+
+<style>
+/* ─── Token ──────────────────────────────────────────────────────────── */
+:root{
+  --avorio:#F8F5EF;
+  --sabbia:#EDE4D6;
+  --sabbia-scura:#E2D6C4;
+  --greige:#BFB6A6;
+  --inchiostro:#2B2E29;
+  --testo:#54574E;
+  --mirto:#3F5445;
+  --mirto-chiaro:#6E836F;
+  --mare:#1E3A4C;
+  --bianco:#FFFEFC;
+
+  --display:"Cormorant Garamond",Georgia,serif;
+  --corpo:"Jost",-apple-system,Segoe UI,sans-serif;
+
+  --t:520ms cubic-bezier(.22,.61,.36,1);
+  --bordo:6px;
+  --gutter:clamp(1.5rem,6vw,7rem);
+  --sezione:clamp(5rem,12vw,10rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--avorio);color:var(--testo);
+  font-family:var(--corpo);font-weight:300;font-size:17px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+@media(min-width:900px){body{font-size:18px}}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:300;color:var(--inchiostro);margin:0;line-height:1.12}
+h1{font-size:clamp(2.6rem,8.5vw,5.6rem);letter-spacing:.01em}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:.01em}
+h3{font-size:clamp(1.35rem,2.4vw,1.75rem)}
+p{margin:0 0 1.4em}
+a{color:inherit}
+
+/* ─── Utility ────────────────────────────────────────────────────────── */
+.wrap{max-width:1240px;margin:0 auto;padding-inline:var(--gutter)}
+.stretta{max-width:660px}
+.sezione{padding-block:var(--sezione)}
+.eyebrow{
+  font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--mirto);margin:0 0 1.6rem;font-weight:400;
+}
+.filo{height:1px;background:var(--greige);opacity:.55;border:0;margin:0}
+
+/* ─── Bottoni ────────────────────────────────────────────────────────── */
+.btn{
+  --c:var(--inchiostro);
+  display:inline-block;position:relative;overflow:hidden;isolation:isolate;
+  padding:1.05rem 2.4rem;border:1px solid var(--c);border-radius:var(--bordo);
+  color:var(--c);text-decoration:none;font-size:.78rem;letter-spacing:.22em;
+  text-transform:uppercase;font-weight:400;background:transparent;cursor:pointer;
+  transition:color var(--t),border-color var(--t);font-family:var(--corpo);
+}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--c);
+  transform:scaleY(0);transform-origin:bottom;transition:transform var(--t);
+}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleY(1)}
+.btn:hover,.btn:focus-visible{color:var(--avorio)}
+.btn--chiaro{--c:var(--bianco)}
+.btn--chiaro:hover,.btn--chiaro:focus-visible{color:var(--inchiostro)}
+.btn--mirto{--c:var(--mirto)}
+.btn--pieno{background:var(--mirto);border-color:var(--mirto);color:var(--avorio)}
+.btn--pieno::before{background:var(--inchiostro)}
+.btn--pieno:hover,.btn--pieno:focus-visible{color:var(--avorio)}
+
+:focus-visible{outline:2px solid var(--mirto);outline-offset:4px;border-radius:2px}
+.hero :focus-visible{outline-color:var(--bianco)}
+.salta{
+  position:absolute;left:-9999px;top:0;background:var(--avorio);color:var(--inchiostro);
+  padding:1rem 1.5rem;z-index:200;
+}
+.salta:focus{left:1rem;top:1rem}
+
+/* ─── Foto e segnaposto ──────────────────────────────────────────────── */
+.foto{position:relative;background:var(--sabbia);overflow:hidden;border-radius:var(--bordo)}
+.foto img{width:100%;height:100%;object-fit:cover}
+.segnaposto{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+  gap:.4rem;padding:clamp(1.2rem,3vw,2rem);
+  background:repeating-linear-gradient(135deg,var(--sabbia) 0 22px,var(--sabbia-scura) 22px 44px);
+  color:var(--mirto);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;line-height:1.6;
+}
+.segnaposto b{font-weight:500;font-size:.78rem}
+.segnaposto span{font-size:.68rem;letter-spacing:.1em;text-transform:none;opacity:.8;font-style:italic}
+
+/* ─── Hero ───────────────────────────────────────────────────────────── */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  color:var(--bianco);overflow:hidden;
+}
+.hero__media{position:absolute;inset:-8% 0 0;border-radius:0;will-change:transform}
+.hero__media img{height:100%;width:100%;object-fit:cover}
+.hero__velo{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,24,22,.42) 0%,rgba(20,24,22,.12) 34%,rgba(20,24,22,.62) 100%);
+}
+.hero__testo{position:relative;z-index:2;width:100%;padding-block:clamp(4rem,12vh,8rem) clamp(5rem,14vh,7rem)}
+.hero h1{color:var(--bianco);max-width:15ch;text-shadow:0 1px 30px rgba(15,20,18,.35)}
+.hero__sub{
+  margin:1.8rem 0 2.8rem;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,254,252,.9);
+}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.9rem}
+.hero__scroll{
+  position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,254,252,.75);
+  text-decoration:none;
+}
+.hero__scroll i{display:block;width:1px;height:44px;background:linear-gradient(rgba(255,254,252,.8),transparent)}
+@media(prefers-reduced-motion:no-preference){
+  .hero__scroll i{animation:respiro 3.6s ease-in-out infinite}
+}
+@keyframes respiro{0%,100%{opacity:.35;transform:scaleY(.7);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+
+/* ─── Introduzione ───────────────────────────────────────────────────── */
+.intro p{font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.75;color:var(--inchiostro);font-family:var(--display)}
+.dati{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,4vw,3rem);
+  margin-top:clamp(3rem,7vw,5rem);border-top:1px solid var(--greige);padding-top:2.6rem;
+}
+.dati div{text-align:left}
+.dati b{display:block;font-family:var(--display);font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:var(--mirto);line-height:1}
+.dati span{display:block;margin-top:.6rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* ─── Gli spazi ──────────────────────────────────────────────────────── */
+.spazio{display:grid;gap:clamp(1.6rem,4vw,4.5rem);align-items:center;margin-bottom:clamp(4rem,9vw,8rem)}
+.spazio:last-child{margin-bottom:0}
+@media(min-width:860px){
+  .spazio{grid-template-columns:1.15fr .85fr}
+  .spazio--inv .spazio__foto{order:2}
+  .spazio--inv .spazio__testo{order:1}
+}
+.spazio__foto{aspect-ratio:4/3}
+.spazio__testo{max-width:44ch}
+.spazio__testo h3{margin-bottom:1.1rem}
+.numero{
+  font-family:var(--display);font-size:.9rem;color:var(--mirto-chiaro);
+  display:block;margin-bottom:.8rem;letter-spacing:.1em;
+}
+
+/* ─── Firma: la luce del giorno ─────────────────────────────────────── */
+.luce{background:var(--sabbia);position:relative}
+.luce__box{position:relative;border-radius:var(--bordo);overflow:hidden;aspect-ratio:16/9}
+@media(max-width:640px){.luce__box{aspect-ratio:4/3}}
+.luce__box img{width:100%;height:100%;object-fit:cover}
+.luce__wash{
+  position:absolute;inset:0;mix-blend-mode:multiply;
+  background:var(--wash,rgba(255,236,210,.35));transition:background 700ms ease-out;
+}
+.luce__vel{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(24,28,26,.55));
+}
+.luce__arco{position:absolute;inset:0;width:100%;height:100%}
+.luce__arco path{fill:none;stroke:rgba(255,254,252,.5);stroke-width:.8;stroke-dasharray:2 4}
+.luce__sole{fill:#FFF6E4;transition:opacity 700ms ease-out}
+.luce__ora{
+  position:absolute;left:clamp(1.2rem,4vw,2.6rem);bottom:clamp(1.2rem,4vw,2.4rem);
+  color:var(--bianco);
+}
+.luce__ora b{display:block;font-family:var(--display);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:300}
+.luce__ora span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+.luce__slider{margin-top:2.2rem;display:flex;align-items:center;gap:1.2rem}
+.luce__slider span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mirto);white-space:nowrap}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;flex:1;height:1px;background:var(--greige);
+  border-radius:2px;cursor:ew-resize;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:16px;height:16px;border-radius:50%;
+  background:var(--avorio);border:1px solid var(--mirto);transition:transform var(--t);
+}
+input[type=range]::-moz-range-thumb{
+  width:16px;height:16px;border-radius:50%;background:var(--avorio);border:1px solid var(--mirto);
+}
+input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.25)}
+
+/* ─── Esperienze ─────────────────────────────────────────────────────── */
+.esperienze{display:grid;gap:0}
+@media(min-width:760px){.esperienze{grid-template-columns:repeat(2,1fr);column-gap:clamp(2rem,6vw,6rem)}}
+.card{padding:2.6rem 0;border-top:1px solid var(--greige)}
+.card h3{margin-bottom:.9rem}
+.card p{margin:0;font-size:.97em}
+
+/* ─── Servizi ────────────────────────────────────────────────────────── */
+.servizi{list-style:none;margin:0;padding:0;columns:1;column-gap:clamp(2rem,7vw,6rem)}
+@media(min-width:640px){.servizi{columns:2}}
+.servizi li{
+  break-inside:avoid;padding:.85rem 0 .85rem 1.6rem;position:relative;
+  border-bottom:1px solid rgba(191,182,166,.4);
+}
+.servizi li::before{
+  content:"";position:absolute;left:0;top:1.55em;width:6px;height:1px;background:var(--mirto-chiaro);
+}
+
+/* ─── Tariffe ────────────────────────────────────────────────────────── */
+table{width:100%;border-collapse:collapse;font-size:.95em}
+caption{text-align:left;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mirto);padding-bottom:1.6rem}
+th,td{text-align:left;padding:1.25rem .8rem;border-bottom:1px solid rgba(191,182,166,.55)}
+th{font-weight:400;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mirto)}
+td:first-child{font-family:var(--display);font-size:1.2rem;color:var(--inchiostro)}
+td:nth-child(2){white-space:nowrap}
+tbody tr:last-child td{border-bottom:1px solid var(--greige)}
+.nota{margin-top:1.8rem;font-size:.9em;max-width:60ch}
+@media(max-width:560px){
+  th:nth-child(3),td:nth-child(3){display:none}
+  .min-mobile{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mirto-chiaro);margin-top:.3rem}
+}
+@media(min-width:561px){.min-mobile{display:none}}
+
+/* ─── Testimonianze ──────────────────────────────────────────────────── */
+.voci{display:grid;gap:clamp(3rem,7vw,5rem)}
+@media(min-width:860px){.voci{grid-template-columns:repeat(3,1fr)}}
+blockquote{margin:0}
+blockquote p{
+  font-family:var(--display);font-size:clamp(1.2rem,2.2vw,1.5rem);line-height:1.6;
+  color:var(--inchiostro);font-style:italic;
+}
+blockquote footer{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mirto)}
+
+/* ─── Posizione ──────────────────────────────────────────────────────── */
+.posizione{background:var(--mare);color:rgba(248,245,239,.86)}
+.posizione h2,.posizione .dist b{color:var(--bianco)}
+.posizione .eyebrow{color:rgba(248,245,239,.6)}
+.dist{list-style:none;margin:0;padding:0}
+.dist li{
+  display:grid;grid-template-columns:1fr auto;gap:.4rem 1.5rem;align-items:baseline;
+  padding:1.15rem 0;border-bottom:1px solid rgba(248,245,239,.18);
+}
+.dist b{font-weight:400;font-family:var(--display);font-size:1.2rem}
+.dist em{grid-column:1/-1;font-style:normal;font-size:.8rem;opacity:.62;letter-spacing:.04em}
+.dist span{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+.posizione a.btn{--c:var(--bianco)}
+.posizione a.btn:hover,.posizione a.btn:focus-visible{color:var(--mare)}
+
+/* ─── Form ───────────────────────────────────────────────────────────── */
+.form-griglia{display:grid;gap:1.6rem 1.8rem;margin-top:2.6rem}
+@media(min-width:700px){
+  .form-griglia{grid-template-columns:1fr 1fr}
+  .campo--full{grid-column:1/-1}
+}
+.campo label{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mirto);margin-bottom:.6rem}
+.campo input,.campo select,.campo textarea{
+  width:100%;padding:.9rem 0;border:0;border-bottom:1px solid var(--greige);
+  background:transparent;font-family:var(--corpo);font-size:1rem;font-weight:300;color:var(--inchiostro);
+  border-radius:0;transition:border-color var(--t);
+}
+.campo input:hover,.campo textarea:hover,.campo select:hover{border-color:var(--mirto-chiaro)}
+.campo input:focus,.campo textarea:focus,.campo select:focus{outline:none;border-color:var(--mirto);border-bottom-width:1px}
+.campo input:focus-visible,.campo textarea:focus-visible,.campo select:focus-visible{outline:2px solid var(--mirto);outline-offset:6px}
+.campo textarea{resize:vertical;min-height:110px}
+.consenso{display:flex;gap:.9rem;align-items:flex-start;font-size:.85rem;line-height:1.6}
+.consenso input{width:16px;height:16px;flex:0 0 auto;margin-top:.35rem;accent-color:var(--mirto)}
+.esito{margin-top:1.6rem;font-size:.95rem;color:var(--mirto);min-height:1.5em}
+.esito[data-stato="errore"]{color:#8A3B2A}
+
+/* ─── Barra sticky + WhatsApp ────────────────────────────────────────── */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(248,245,239,.94);backdrop-filter:blur(10px);
+  border-top:1px solid var(--greige);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.85rem clamp(1rem,4vw,2.5rem);
+  transform:translateY(105%);transition:transform var(--t);
+}
+.sticky[data-visibile="si"]{transform:translateY(0)}
+.sticky p{margin:0;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mirto)}
+.sticky .btn{padding:.75rem 1.5rem;font-size:.68rem}
+@media(max-width:620px){
+  .sticky p{display:none}
+  .sticky{justify-content:stretch}
+  .sticky .btn{flex:1;text-align:center}
+}
+.wa{
+  position:fixed;right:clamp(1rem,3vw,2rem);bottom:calc(4.6rem + env(safe-area-inset-bottom));z-index:61;
+  width:52px;height:52px;border-radius:50%;background:var(--mirto);color:var(--avorio);
+  display:grid;place-items:center;text-decoration:none;
+  box-shadow:0 6px 22px rgba(43,46,41,.16);
+  opacity:0;pointer-events:none;transition:opacity var(--t),background var(--t);
+}
+.wa[data-visibile="si"]{opacity:1;pointer-events:auto}
+.wa:hover,.wa:focus-visible{background:var(--inchiostro)}
+.wa svg{width:24px;height:24px;fill:currentColor}
+
+/* ─── Footer ─────────────────────────────────────────────────────────── */
+footer.piede{padding-block:clamp(4rem,8vw,6rem) calc(6.5rem + env(safe-area-inset-bottom));background:var(--sabbia)}
+.piede__griglia{display:grid;gap:2.6rem}
+@media(min-width:760px){.piede__griglia{grid-template-columns:1.4fr 1fr 1fr}}
+.piede h3{font-size:1.6rem;margin-bottom:.8rem}
+.piede a{text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--t)}
+.piede a:hover,.piede a:focus-visible{border-color:var(--mirto)}
+.piede ul{list-style:none;margin:0;padding:0}
+.piede li{padding:.35rem 0}
+.piede small{display:block;margin-top:3.4rem;padding-top:1.8rem;border-top:1px solid var(--greige);font-size:.75rem;opacity:.75}
+
+/* ─── Rivelazione allo scroll ────────────────────────────────────────── */
+.rivela{opacity:0;transform:translateY(26px);transition:opacity 700ms ease-out,transform 700ms cubic-bezier(.22,.61,.36,1)}
+.rivela[data-vista="si"]{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rivela{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<a class="salta" href="#contatto">Vai al modulo di richiesta</a>
+
+<!-- ─── 1. HERO ────────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero__media" id="heroMedia" data-foto="hero"></div>
+  <div class="hero__velo"></div>
+  <div class="wrap hero__testo">
+    <h1 id="heroTitolo">Il mare a cinquanta passi</h1>
+    <p class="hero__sub" id="heroSub"></p>
+    <div class="hero__cta">
+      <a class="btn btn--chiaro" href="#contatto">Verifica disponibilità</a>
+      <a class="btn btn--chiaro" href="#spazi">Scopri la villa</a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#introduzione"><i></i>Scorri</a>
+</header>
+
+<main id="contenuto">
+
+  <!-- ─── 2. INTRODUZIONE ──────────────────────────────────────────── -->
+  <section class="sezione intro" id="introduzione">
+    <div class="wrap">
+      <div class="stretta rivela">
+        <p class="eyebrow">La casa</p>
+        <p>Villa Dessì sta dove la macchia mediterranea finisce e comincia la sabbia:
+        cinquanta metri di sentiero privato, e nient'altro tra il porticato e l'acqua.</p>
+        <p>È una casa di famiglia, non una struttura ricettiva. Sei posti letto veri,
+        due lati di portico per seguire l'ombra durante il giorno, un barbecue che
+        d'estate diventa la cucina principale. Il sole sorge sul mare davanti alle camere
+        e tramonta dietro i monti, alle spalle del giardino.</p>
+        <p>La affittiamo a poche famiglie all'anno, perché resti com'è.</p>
+      </div>
+      <div class="dati rivela" id="datiChiave"></div>
+    </div>
+  </section>
+
+  <!-- ─── 3. GLI SPAZI ─────────────────────────────────────────────── -->
+  <section class="sezione" id="spazi" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow rivela">Gli spazi</p>
+      <div id="spaziLista"></div>
+    </div>
+  </section>
+
+  <!-- ─── FIRMA: LA LUCE DEL GIORNO ────────────────────────────────── -->
+  <section class="sezione luce" aria-labelledby="tit-luce">
+    <div class="wrap">
+      <p class="eyebrow rivela">Dall'alba al tramonto</p>
+      <h2 id="tit-luce" class="rivela" style="max-width:16ch;margin-bottom:2.6rem">La stessa casa, sei volte al giorno</h2>
+      <div class="luce__box rivela">
+        <div class="foto" data-foto="luce" style="position:absolute;inset:0;border-radius:0"></div>
+        <div class="luce__wash" id="luceWash"></div>
+        <div class="luce__vel"></div>
+        <svg class="luce__arco" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true">
+          <path id="arco" d="M4,50 Q50,-2 96,50"></path>
+        </svg>
+        <svg class="luce__arco" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true">
+          <circle class="luce__sole" id="sole" r="1.6" cx="4" cy="50"></circle>
+        </svg>
+        <div class="luce__ora">
+          <b id="luceOra">06:10</b>
+          <span id="luceDidascalia">Alba sul golfo</span>
+        </div>
+      </div>
+      <div class="luce__slider rivela">
+        <span aria-hidden="true">Alba</span>
+        <input type="range" id="luceRange" min="0" max="100" value="8"
+               aria-label="Ora del giorno, dall'alba al tramonto">
+        <span aria-hidden="true">Notte</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 4. ESPERIENZE ────────────────────────────────────────────── -->
+  <section class="sezione" aria-labelledby="tit-esperienze">
+    <div class="wrap">
+      <p class="eyebrow rivela">Intorno</p>
+      <h2 id="tit-esperienze" class="rivela" style="max-width:14ch;margin-bottom:3rem">Quello che c'è, a portata di sandali</h2>
+      <div class="esperienze" id="esperienzeLista"></div>
+    </div>
+  </section>
+
+  <!-- ─── 5. SERVIZI ───────────────────────────────────────────────── -->
+  <section class="sezione" style="padding-top:0" aria-labelledby="tit-servizi">
+    <div class="wrap">
+      <p class="eyebrow rivela">Compreso nel soggiorno</p>
+      <h2 id="tit-servizi" class="rivela" style="margin-bottom:3rem">Servizi e comfort</h2>
+      <ul class="servizi rivela" id="serviziLista"></ul>
+    </div>
+  </section>
+
+  <!-- ─── 6. TARIFFE ───────────────────────────────────────────────── -->
+  <section class="sezione" style="background:var(--sabbia)" aria-labelledby="tit-tariffe">
+    <div class="wrap">
+      <p class="eyebrow rivela">Disponibilità e tariffe</p>
+      <h2 id="tit-tariffe" class="rivela" style="max-width:16ch;margin-bottom:3rem">Stagioni e prezzi</h2>
+      <div class="rivela" style="max-width:840px">
+        <table id="tabellaTariffe">
+          <caption>Prezzo per settimana, intera villa</caption>
+          <thead>
+            <tr><th scope="col">Periodo</th><th scope="col">A settimana</th><th scope="col">Soggiorno minimo</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p class="nota" id="notaTariffe"></p>
+        <p style="margin-top:2.4rem"><a class="btn btn--mirto" href="#contatto">Chiedi le date libere</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 7. TESTIMONIANZE ─────────────────────────────────────────── -->
+  <section class="sezione" aria-labelledby="tit-voci">
+    <div class="wrap">
+      <p class="eyebrow rivela">Chi c'è stato</p>
+      <h2 id="tit-voci" class="rivela" style="margin-bottom:3.4rem">Tre stagioni, tre voci</h2>
+      <div class="voci" id="vociLista"></div>
+    </div>
+  </section>
+
+  <!-- ─── 8. POSIZIONE ─────────────────────────────────────────────── -->
+  <section class="sezione posizione" aria-labelledby="tit-posizione">
+    <div class="wrap">
+      <p class="eyebrow rivela">Dove siamo</p>
+      <h2 id="tit-posizione" class="rivela" style="max-width:15ch;margin-bottom:2.8rem">Geremeas, costa sud-orientale</h2>
+      <div style="display:grid;gap:clamp(2rem,6vw,5rem);grid-template-columns:1fr" class="rivela">
+        <ul class="dist" id="distanzeLista"></ul>
+        <p style="margin:0"><a class="btn" id="linkMappa" href="#" target="_blank" rel="noopener">Apri la mappa</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 9. FORM ──────────────────────────────────────────────────── -->
+  <section class="sezione" id="contatto" aria-labelledby="tit-contatto">
+    <div class="wrap">
+      <div style="max-width:820px">
+        <p class="eyebrow rivela">Richiesta</p>
+        <h2 id="tit-contatto" class="rivela" style="max-width:16ch">Scriveteci le vostre date</h2>
+        <p class="rivela" style="max-width:52ch;margin-top:1.6rem">Rispondiamo entro ventiquattro ore, con disponibilità e preventivo.
+          Nessun anticipo richiesto prima di aver parlato.</p>
+
+        <form class="form-griglia rivela" id="modulo" novalidate>
+          <div class="campo">
+            <label for="arrivo">Arrivo</label>
+            <input type="date" id="arrivo" name="arrivo" required>
+          </div>
+          <div class="campo">
+            <label for="partenza">Partenza</label>
+            <input type="date" id="partenza" name="partenza" required>
+          </div>
+          <div class="campo">
+            <label for="ospiti">Ospiti</label>
+            <select id="ospiti" name="ospiti">
+              <option>2</option><option>3</option><option>4</option>
+              <option>5</option><option selected>6</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="nome">Nome e cognome</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="telefono">Telefono <span style="text-transform:none;letter-spacing:0">(facoltativo)</span></label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+          </div>
+          <div class="campo campo--full">
+            <label for="messaggio">Messaggio <span style="text-transform:none;letter-spacing:0">(facoltativo)</span></label>
+            <textarea id="messaggio" name="messaggio" placeholder="Bambini piccoli, arrivo in tarda serata, richieste particolari…"></textarea>
+          </div>
+          <div class="campo campo--full consenso">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy" style="letter-spacing:0;text-transform:none;font-size:.9rem;color:var(--testo);margin:0">
+              Acconsento al trattamento dei dati per rispondere a questa richiesta.
+            </label>
+          </div>
+          <div class="campo campo--full">
+            <button type="submit" class="btn btn--pieno">Invia la richiesta</button>
+            <p class="esito" id="esito" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ─── 10. FOOTER ─────────────────────────────────────────────────── -->
+<footer class="piede">
+  <div class="wrap piede__griglia">
+    <div>
+      <h3 id="piedeNome">Villa Dessì</h3>
+      <p id="piedeIndirizzo" style="margin:0"></p>
+    </div>
+    <div>
+      <p class="eyebrow" style="margin-bottom:1rem">Contatti</p>
+      <ul id="piedeContatti"></ul>
+    </div>
+    <div>
+      <p class="eyebrow" style="margin-bottom:1rem">Altrove</p>
+      <ul id="piedeSocial"></ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <small>© <span id="anno"></span> Villa Dessì — Locazione turistica. CIN / CIR: da inserire.
+    Privacy e cookie: nessun cookie di profilazione su questo sito.</small>
+  </div>
+</footer>
+
+<div class="sticky" id="barra">
+  <p>Villa Dessì · Geremeas, 50 m dal mare</p>
+  <a class="btn btn--mirto" href="#contatto">Verifica disponibilità</a>
+</div>
+
+<a class="wa" id="linkWhatsapp" href="#" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.24 8.24 0 0 1 0 16.47Zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.42.06-.64.31-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.59 4.12 3.63.58.25 1.02.4 1.37.51.58.18 1.1.16 1.52.1.46-.07 1.42-.58 1.62-1.15.2-.56.2-1.05.14-1.15-.06-.1-.22-.16-.47-.28Z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  const $ = (s,c)=> (c||document).querySelector(s);
+  const $$ = (s,c)=> Array.from((c||document).querySelectorAll(s));
+  const esc = t => String(t).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+
+  /* ── Foto con segnaposto automatico ─────────────────────────────── */
+  function montaFoto(el, chiave){
+    const dato = VILLA.foto[chiave];
+    if(!dato) return;
+    el.classList.add('foto');
+    const img = new Image();
+    img.alt = dato.alt;
+    img.loading = chiave === 'hero' ? 'eager' : 'lazy';
+    img.decoding = 'async';
+    img.onerror = () => {
+      img.remove();
+      el.insertAdjacentHTML('beforeend',
+        '<div class="segnaposto" role="img" aria-label="'+esc(dato.alt)+'">'+
+        '<b>Foto da inserire</b>'+esc(dato.file)+
+        '<span>'+esc(dato.alt)+'</span></div>');
+    };
+    img.src = dato.file;
+    el.appendChild(img);
+  }
+  $$('[data-foto]').forEach(el => montaFoto(el, el.dataset.foto));
+
+  /* ── Testi dinamici ─────────────────────────────────────────────── */
+  document.title = VILLA.nome + ' — Casa privata sul mare a ' + VILLA.localita;
+  $('#heroTitolo').textContent = VILLA.headline;
+  $('#heroSub').textContent = VILLA.sottotitolo;
+  $('#piedeNome').textContent = VILLA.nome;
+  $('#piedeIndirizzo').textContent = VILLA.contatti.indirizzo;
+  $('#anno').textContent = new Date().getFullYear();
+  $('#linkMappa').href = VILLA.mappaLink;
+  $('#barra p').textContent = VILLA.nome + ' · ' + VILLA.localita;
+
+  $('#datiChiave').innerHTML = VILLA.datiChiave
+    .map(d => '<div><b>'+esc(d.numero)+'</b><span>'+esc(d.etichetta)+'</span></div>').join('');
+
+  /* ── Gli spazi ──────────────────────────────────────────────────── */
+  const SPAZI = [
+    { foto:'soggiorno', titolo:'Il soggiorno',
+      testo:'Un unico ambiente chiaro che si apre sul portico. Divani in lino, un tavolo grande che regge sei persone e le carte nautiche, ventilatore a soffitto e porte scorrevoli che restano aperte da giugno a settembre.' },
+    { foto:'camere', titolo:'Le camere',
+      testo:'Tre camere: una matrimoniale con vista frontale sul mare, una matrimoniale sul giardino, una con due letti singoli. Lenzuola di lino, armadi capienti, zanzariere ovunque. Due bagni, uno con doccia esterna dedicata.' },
+    { foto:'porticato', titolo:'Il porticato',
+      testo:'Corre su due lati della casa, così l\'ombra c\'è sempre da qualche parte: la mattina a est per la colazione, il pomeriggio a ovest per il dopo-spiaggia. È qui che si passa la maggior parte del tempo.' },
+    { foto:'esterni', titolo:'Il giardino e il barbecue',
+      testo:'Ginepri, mirto e un prato di sabbia compatta. Il barbecue in muratura è sotto la tettoia, con piano d\'appoggio e lavello: d\'estate la cucina si sposta qui e ci resta fino a settembre.' },
+    { foto:'cucina', titolo:'La cucina',
+      testo:'In muratura, con piano in pietra, forno, lavastoviglie e tutto quello che serve per cucinare davvero. La spesa si fa al mercato di Quartu o al minimarket del paese, a un chilometro.' },
+    { foto:'spiaggia', titolo:'L\'accesso alla spiaggia',
+      testo:'Un sentiero privato scende dal fondo del giardino alla sabbia in meno di un minuto. Si va scalzi, con l\'asciugamano in mano, e si torna per pranzo senza mai prendere la macchina.' }
+  ];
+  $('#spaziLista').innerHTML = SPAZI.map((s,i) =>
+    '<article class="spazio rivela'+(i%2 ? ' spazio--inv':'')+'">'+
+      '<div class="spazio__foto" data-foto="'+s.foto+'"></div>'+
+      '<div class="spazio__testo">'+
+        '<span class="numero">0'+(i+1)+'</span>'+
+        '<h3>'+esc(s.titolo)+'</h3><p>'+esc(s.testo)+'</p>'+
+      '</div>'+
+    '</article>').join('');
+  $$('#spaziLista [data-foto]').forEach(el => montaFoto(el, el.dataset.foto));
+
+  /* ── Esperienze, servizi, tariffe, voci, distanze ───────────────── */
+  $('#esperienzeLista').innerHTML = VILLA.esperienze
+    .map(e => '<article class="card rivela"><h3>'+esc(e.titolo)+'</h3><p>'+esc(e.testo)+'</p></article>').join('');
+
+  $('#serviziLista').innerHTML = VILLA.servizi.map(s => '<li>'+esc(s)+'</li>').join('');
+
+  $('#tabellaTariffe tbody').innerHTML = VILLA.tariffe.map(t =>
+    '<tr><td>'+esc(t.periodo)+'<span class="min-mobile">min. '+esc(t.minimo)+'</span></td>'+
+    '<td>'+esc(t.settimana)+'</td><td>'+esc(t.minimo)+'</td></tr>').join('');
+  $('#notaTariffe').textContent = VILLA.tariffeNota;
+
+  $('#vociLista').innerHTML = VILLA.testimonianze.map(v =>
+    '<blockquote class="rivela"><p>«'+esc(v.testo)+'»</p>'+
+    '<footer>'+esc(v.nome)+' — '+esc(v.provenienza)+'</footer></blockquote>').join('');
+
+  $('#distanzeLista').innerHTML = VILLA.distanze.map(d =>
+    '<li><b>'+esc(d.luogo)+'</b><span>'+esc(d.valore)+'</span><em>'+esc(d.nota)+'</em></li>').join('');
+
+  /* ── Footer contatti ────────────────────────────────────────────── */
+  const c = VILLA.contatti;
+  const wa = 'https://wa.me/'+c.whatsapp+'?text='+encodeURIComponent(c.whatsappTesto);
+  $('#linkWhatsapp').href = wa;
+  $('#piedeContatti').innerHTML =
+    '<li><a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a></li>'+
+    '<li><a href="tel:'+c.telefono.replace(/\s/g,'')+'">'+esc(c.telefono)+'</a></li>'+
+    '<li><a href="'+wa+'" target="_blank" rel="noopener">WhatsApp</a></li>';
+  $('#piedeSocial').innerHTML =
+    '<li><a href="'+esc(c.instagram)+'" target="_blank" rel="noopener">Instagram '+esc(c.instagramNome)+'</a></li>'+
+    '<li><a href="'+esc(VILLA.mappaLink)+'" target="_blank" rel="noopener">Mappa</a></li>';
+
+  /* ── Rivelazione allo scroll ────────────────────────────────────── */
+  const oss = new IntersectionObserver(voci => {
+    voci.forEach(v => { if(v.isIntersecting){ v.target.dataset.vista = 'si'; oss.unobserve(v.target); } });
+  }, { rootMargin:'0px 0px -12% 0px', threshold:0.08 });
+  $$('.rivela').forEach(el => oss.observe(el));
+
+  /* ── Parallax appena percettibile + barra sticky ────────────────── */
+  const media = $('#heroMedia'), barra = $('#barra'), waBtn = $('#linkWhatsapp');
+  const moto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let tick = false;
+  function suScroll(){
+    const y = window.scrollY;
+    if(!moto && y < window.innerHeight) media.style.transform = 'translate3d(0,'+(y*0.14)+'px,0)';
+    const mostra = y > window.innerHeight * 0.85 ? 'si' : 'no';
+    barra.dataset.visibile = mostra;
+    waBtn.dataset.visibile = mostra;
+    tick = false;
+  }
+  window.addEventListener('scroll', () => { if(!tick){ requestAnimationFrame(suScroll); tick = true; } }, {passive:true});
+  suScroll();
+
+  /* ── La luce del giorno ─────────────────────────────────────────── */
+  const arco = $('#arco'), sole = $('#sole'), range = $('#luceRange');
+  const ora = $('#luceOra'), didasc = $('#luceDidascalia'), wash = $('#luceWash');
+  const MOMENTI = [
+    { p:0,   ora:'05:50', testo:'Prima luce, mare piatto',  col:[255,214,178,.42] },
+    { p:20,  ora:'08:30', testo:'Colazione a est',          col:[255,240,214,.28] },
+    { p:45,  ora:'13:00', testo:'Ombra lunga sul portico',  col:[255,252,240,.14] },
+    { p:70,  ora:'18:15', testo:'Rientro dalla spiaggia',   col:[255,224,180,.32] },
+    { p:88,  ora:'20:40', testo:'Tramonto dietro i monti',  col:[240,168,124,.46] },
+    { p:100, ora:'22:30', testo:'Cena sotto il portico',    col:[64,84,110,.55] }
+  ];
+  function mix(a,b,t){ return a.map((v,i)=> v + (b[i]-v)*t); }
+  function aggiornaLuce(v){
+    let i = 0;
+    while(i < MOMENTI.length-2 && v > MOMENTI[i+1].p) i++;
+    const A = MOMENTI[i], B = MOMENTI[i+1];
+    const t = Math.min(1, Math.max(0, (v - A.p)/(B.p - A.p)));
+    const col = mix(A.col, B.col, t);
+    wash.style.background = 'rgba('+Math.round(col[0])+','+Math.round(col[1])+','+Math.round(col[2])+','+col[3].toFixed(2)+')';
+    const rif = t < 0.5 ? A : B;
+    ora.textContent = rif.ora;
+    didasc.textContent = rif.testo;
+    if(arco.getTotalLength){
+      const L = arco.getTotalLength();
+      const pt = arco.getPointAtLength(L * Math.min(v,96)/100);
+      sole.setAttribute('cx', pt.x);
+      sole.setAttribute('cy', pt.y);
+      sole.style.opacity = v > 94 ? 0.15 : 1;
+    }
+    range.setAttribute('aria-valuetext', rif.ora + ', ' + rif.testo);
+  }
+  range.addEventListener('input', e => aggiornaLuce(+e.target.value));
+  aggiornaLuce(+range.value);
+
+  /* ── Form ───────────────────────────────────────────────────────── */
+  const modulo = $('#modulo'), esito = $('#esito');
+  const oggi = new Date().toISOString().split('T')[0];
+  $('#arrivo').min = oggi; $('#partenza').min = oggi;
+  $('#arrivo').addEventListener('change', e => { $('#partenza').min = e.target.value || oggi; });
+
+  modulo.addEventListener('submit', async e => {
+    e.preventDefault();
+    esito.dataset.stato = '';
+    if(!modulo.checkValidity()){
+      const primo = $$('#modulo :invalid')[0];
+      esito.dataset.stato = 'errore';
+      esito.textContent = 'Manca ancora qualcosa: controllate i campi evidenziati.';
+      if(primo){ primo.focus(); }
+      return;
+    }
+    const dati = Object.fromEntries(new FormData(modulo).entries());
+    const btn = $('#modulo button[type=submit]');
+    btn.disabled = true; esito.textContent = 'Invio in corso…';
+
+    if(VILLA.formEndpoint){
+      try{
+        const r = await fetch(VILLA.formEndpoint, {
+          method:'POST', headers:{'Accept':'application/json'}, body:new FormData(modulo)
+        });
+        if(!r.ok) throw new Error('risposta non valida');
+        modulo.reset();
+        esito.textContent = 'Richiesta ricevuta. Vi rispondiamo entro ventiquattro ore.';
+      }catch(err){
+        esito.dataset.stato = 'errore';
+        esito.innerHTML = 'L\'invio non è andato a buon fine. Scriveteci direttamente a '+
+          '<a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a> o su WhatsApp.';
+      }
+    } else {
+      const corpo =
+        'Richiesta da villadessi.it\n\n'+
+        'Arrivo: '+dati.arrivo+'\nPartenza: '+dati.partenza+'\nOspiti: '+dati.ospiti+
+        '\n\nNome: '+dati.nome+'\nEmail: '+dati.email+'\nTelefono: '+(dati.telefono||'—')+
+        '\n\nMessaggio:\n'+(dati.messaggio||'—');
+      window.location.href = 'mailto:'+c.email+
+        '?subject='+encodeURIComponent('Richiesta disponibilità '+dati.arrivo+' → '+dati.partenza)+
+        '&body='+encodeURIComponent(corpo);
+      esito.textContent = 'Si apre il vostro programma di posta con la richiesta già compilata: basta premere invio.';
+    }
+    btn.disabled = false;
+  });
+})();
+</script>
+</body>
+</html>

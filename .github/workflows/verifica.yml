@@ -1,0 +1,61 @@
+name: Verifica HTML
+
+# Controllo di sicurezza: gira sulle pull request e sui push,
+# segnala HTML rotto o link interni mancanti PRIMA che il sito vada online.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  html:
+    name: Controlla index.html
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installa i controlli
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tidy
+
+      - name: Sintassi HTML
+        # -q silenzioso, --show-warnings no: solo errori bloccanti.
+        # tidy esce con 1 sui warning e 2 sugli errori: fermiamo solo sul 2.
+        run: |
+          set +e
+          tidy -q --show-warnings no --gnu-emacs yes -e index.html
+          code=$?
+          set -e
+          if [ "$code" -ge 2 ]; then
+            echo "::error::index.html contiene errori di sintassi HTML"
+            exit 1
+          fi
+          echo "index.html: sintassi valida"
+
+      - name: Peso della pagina
+        # Il sito deve restare leggero: avviso oltre i 200 kB di HTML.
+        run: |
+          size=$(wc -c < index.html)
+          echo "index.html: $size byte"
+          if [ "$size" -gt 204800 ]; then
+            echo "::warning::index.html supera i 200 kB, valuta di alleggerirlo"
+          fi
+
+      - name: Immagini mancanti
+        # Elenca le foto citate in index.html che non esistono in immagini/.
+        # Non blocca il deploy: il sito mostra un segnaposto al loro posto.
+        run: |
+          missing=0
+          for f in $(grep -oE '[a-z0-9-]+\.(jpg|jpeg|png|webp)' index.html | sort -u); do
+            if [ ! -f "immagini/$f" ]; then
+              echo "::warning::foto mancante: immagini/$f"
+              missing=$((missing+1))
+            fi
+          done
+          echo "Foto mancanti: $missing"
