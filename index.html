@@ -526,27 +526,8 @@ footer.piede{padding-block:clamp(4rem,8vw,6rem) calc(6.5rem + env(safe-area-inse
     </div>
   </section>
 
-  <!-- ─── 6. TARIFFE ───────────────────────────────────────────────── -->
-  <section class="sezione" style="background:var(--sabbia)" aria-labelledby="tit-tariffe">
-    <div class="wrap">
-      <p class="eyebrow rivela">Disponibilità e tariffe</p>
-      <h2 id="tit-tariffe" class="rivela" style="max-width:16ch;margin-bottom:3rem">Stagioni e prezzi</h2>
-      <div class="rivela" style="max-width:840px">
-        <table id="tabellaTariffe">
-          <caption>Prezzo per settimana, intera villa</caption>
-          <thead>
-            <tr><th scope="col">Periodo</th><th scope="col">A settimana</th><th scope="col">Soggiorno minimo</th></tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <p class="nota" id="notaTariffe"></p>
-        <p style="margin-top:2.4rem"><a class="btn btn--mirto" href="#contatto">Chiedi le date libere</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── 7. TESTIMONIANZE ─────────────────────────────────────────── -->
-  <section class="sezione" aria-labelledby="tit-voci">
+  <!-- ─── 6. TESTIMONIANZE ─────────────────────────────────────────── -->
+  <section class="sezione" style="background:var(--sabbia)" aria-labelledby="tit-voci">
     <div class="wrap">
       <p class="eyebrow rivela">Chi c'è stato</p>
       <h2 id="tit-voci" class="rivela" style="margin-bottom:3.4rem">Tre stagioni, tre voci</h2>
@@ -720,16 +701,11 @@ footer.piede{padding-block:clamp(4rem,8vw,6rem) calc(6.5rem + env(safe-area-inse
     '</article>').join('');
   $$('#spaziLista [data-foto]').forEach(el => montaFoto(el, el.dataset.foto));
 
-  /* ── Esperienze, servizi, tariffe, voci, distanze ───────────────── */
+  /* ── Esperienze, servizi, voci, distanze ───────────────── */
   $('#esperienzeLista').innerHTML = VILLA.esperienze
     .map(e => '<article class="card rivela"><h3>'+esc(e.titolo)+'</h3><p>'+esc(e.testo)+'</p></article>').join('');
 
   $('#serviziLista').innerHTML = VILLA.servizi.map(s => '<li>'+esc(s)+'</li>').join('');
-
-  $('#tabellaTariffe tbody').innerHTML = VILLA.tariffe.map(t =>
-    '<tr><td>'+esc(t.periodo)+'<span class="min-mobile">min. '+esc(t.minimo)+'</span></td>'+
-    '<td>'+esc(t.settimana)+'</td><td>'+esc(t.minimo)+'</td></tr>').join('');
-  $('#notaTariffe').textContent = VILLA.tariffeNota;
 
   $('#vociLista').innerHTML = VILLA.testimonianze.map(v =>
     '<blockquote class="rivela"><p>«'+esc(v.testo)+'»</p>'+
