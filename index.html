@@ -60,8 +60,7 @@
         porticato: { file: "immagini/porticato.jpg", alt: "Porticato in ombra con tavolo apparecchiato" },
         esterni: { file: "immagini/esterni-barbecue.jpg", alt: "Angolo barbecue nel giardino di macchia mediterranea" },
         cucina: { file: "immagini/cucina.jpg", alt: "Cucina in muratura con piano di lavoro in pietra" },
-        spiaggia: { file: "immagini/spiaggia-accesso.jpg", alt: "Il sentiero privato che scende alla spiaggia" },
-        luce: { file: "immagini/IMG_7623.jpeg", alt: "L'orizzonte visto dalla villa" }
+        spiaggia: { file: "immagini/spiaggia-accesso.jpg", alt: "Il sentiero privato che scende alla spiaggia" }
       },
 
       /* --- I tre dati chiave sotto l'introduzione ------------------------- */
@@ -69,14 +68,6 @@
         { numero: "6", etichetta: "ospiti" },
         { numero: "3", etichetta: "camere, 2 bagni" },
         { numero: "50 m", etichetta: "dal mare" }
-      ],
-
-      /* --- Esperienze nei dintorni (aggiungi o togli card liberamente) ---- */
-      esperienze: [
-        { titolo: "Le cale a est", testo: "Da Geremeas la costa si apre in una sequenza di cale raggiungibili in pochi minuti: Torre delle Stelle, Solanas, Cala Regina. Sabbia chiara, fondali bassi, nessuna struttura." },
-        { titolo: "Un giorno in barca", testo: "Gommone o barca con skipper da Marina di Capitana, a venti minuti. Si esce la mattina presto verso Villasimius e si rientra con la luce lunga del pomeriggio." },
-        { titolo: "Tavoli fuori stagione", testo: "Pesce e vernaccia nelle trattorie di Solanas e Torre delle Stelle, cucina di terra salendo verso Sinnai e Burcei. Prenotiamo noi, se preferite." },
-        { titolo: "Sentieri dei Sette Fratelli", testo: "Mezz'ora di macchina nell'entroterra: leccete, granito e cervi sardi. Il periodo migliore va da ottobre a maggio, presto la mattina." }
       ],
 
       /* --- Servizi e comfort inclusi (lista a due colonne) ---------------- */
@@ -93,17 +84,8 @@
         "Parcheggio privato",
         "Doccia esterna",
         "Zanzariere a tutte le finestre",
-        "privacy"
+        "Privacy"
       ],
-
-      /* --- Tariffe stagionali (prezzo a settimana) ----------------------- */
-      tariffe: [
-        { periodo: "Maggio e ottobre", settimana: "1.400 €", minimo: "3 notti" },
-        { periodo: "Giugno e settembre", settimana: "1.900 €", minimo: "7 notti" },
-        { periodo: "Luglio", settimana: "2.600 €", minimo: "7 notti" },
-        { periodo: "Agosto", settimana: "3.200 €", minimo: "7 notti, sabato–sabato" }
-      ],
-      tariffeNota: "Le tariffe comprendono utenze, biancheria e pulizia finale. Tassa di soggiorno esclusa. Per soggiorni lunghi o fuori stagione scriveteci: troviamo la formula giusta.",
 
       /* --- Testimonianze ------------------------------------------------- */
       testimonianze: [
@@ -147,8 +129,8 @@
 
       --t: 520ms cubic-bezier(.22, .61, .36, 1);
       --bordo: 6px;
-      --gutter: clamp(1.5rem, 6vw, 7rem);
-      --sezione: clamp(5rem, 12vw, 10rem);
+      --gutter: clamp(1.25rem, 5vw, 5rem);
+      --sezione: clamp(3.2rem, 7vw, 6rem);
     }
 
     * {
@@ -166,7 +148,7 @@
       font-family: var(--corpo);
       font-weight: 300;
       font-size: 17px;
-      line-height: 1.85;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -198,7 +180,7 @@
     }
 
     h2 {
-      font-size: clamp(2rem, 4.6vw, 3.4rem);
+      font-size: clamp(1.7rem, 3.6vw, 2.7rem);
       letter-spacing: .01em
     }
 
@@ -207,7 +189,7 @@
     }
 
     p {
-      margin: 0 0 1.4em
+      margin: 0 0 1.1em
     }
 
     a {
@@ -230,11 +212,11 @@
     }
 
     .eyebrow {
-      font-size: .7rem;
-      letter-spacing: .34em;
+      font-size: .68rem;
+      letter-spacing: .3em;
       text-transform: uppercase;
       color: var(--mirto);
-      margin: 0 0 1.6rem;
+      margin: 0 0 1.1rem;
       font-weight: 400;
     }
 
@@ -458,11 +440,11 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding-block: clamp(3rem, 8vh, 6rem);
+      padding-block: clamp(2rem, 6vh, 4.5rem);
     }
 
     .hero__header-text {
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.1rem;
     }
 
     .hero__glass-card {
@@ -477,7 +459,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
         inset 0 -1px 0 rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      padding: clamp(1.4rem, 3.5vw, 2.2rem) clamp(1.8rem, 4vw, 3rem);
+      padding: clamp(1.1rem, 3vw, 1.8rem) clamp(1.3rem, 3.5vw, 2.4rem);
       max-width: 580px;
       width: 92%;
       margin: 0 auto;
@@ -508,11 +490,11 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.32);
       border-radius: 100px;
-      font-size: 0.68rem;
-      letter-spacing: 0.25em;
+      font-size: 0.64rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: rgba(255, 254, 252, 0.95);
-      margin-bottom: 1.2rem;
+      margin-bottom: .9rem;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
     .liquid-badge__dot {
@@ -551,7 +533,7 @@
       max-width: 18ch;
       margin: 0 auto;
       text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
-      font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+      font-size: clamp(2.05rem, 6.2vw, 4.2rem);
     }
 
     .hero__sub {
@@ -618,8 +600,8 @@
 
     /* ─── Introduzione ───────────────────────────────────────────────────── */
     .intro p {
-      font-size: clamp(1.15rem, 2vw, 1.45rem);
-      line-height: 1.75;
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.6;
       color: var(--inchiostro);
       font-family: var(--display)
     }
@@ -627,10 +609,10 @@
     .dati {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(1rem, 4vw, 3rem);
-      margin-top: clamp(3rem, 7vw, 5rem);
+      gap: clamp(.8rem, 3vw, 2.4rem);
+      margin-top: clamp(1.8rem, 4vw, 3rem);
       border-top: 1px solid var(--greige);
-      padding-top: 2.6rem;
+      padding-top: 1.8rem;
     }
 
     .dati div {
@@ -640,7 +622,7 @@
     .dati b {
       display: block;
       font-family: var(--display);
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(1.7rem, 4.2vw, 2.6rem);
       font-weight: 300;
       color: var(--mirto);
       line-height: 1
@@ -654,204 +636,38 @@
       text-transform: uppercase
     }
 
-    /* ─── Gli spazi ──────────────────────────────────────────────────────── */
-    .spazio {
+    /* ─── Gli spazi: griglia compatta ────────────────────────────────────── */
+    .griglia-spazi {
       display: grid;
-      gap: clamp(1.6rem, 4vw, 4.5rem);
-      align-items: center;
-      margin-bottom: clamp(4rem, 9vw, 8rem)
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(1.1rem, 2.6vw, 2rem) clamp(.9rem, 2.2vw, 1.8rem);
+      margin-top: 1.4rem;
     }
 
-    .spazio:last-child {
-      margin-bottom: 0
-    }
-
-    @media(min-width:860px) {
-      .spazio {
-        grid-template-columns: 1.15fr .85fr
-      }
-
-      .spazio--inv .spazio__foto {
-        order: 2
-      }
-
-      .spazio--inv .spazio__testo {
-        order: 1
+    @media(min-width:900px) {
+      .griglia-spazi {
+        grid-template-columns: repeat(3, 1fr)
       }
     }
 
-    .spazio__foto {
-      aspect-ratio: 4/3
+    .sp-card {
+      margin: 0
     }
 
-    .spazio__testo {
-      max-width: 44ch
+    .sp-card__foto {
+      aspect-ratio: 4/3;
+      margin-bottom: .85rem
     }
 
-    .spazio__testo h3 {
-      margin-bottom: 1.1rem
+    .sp-card h3 {
+      font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+      margin-bottom: .3rem
     }
 
-    .numero {
-      font-family: var(--display);
-      font-size: .9rem;
-      color: var(--mirto-chiaro);
-      display: block;
-      margin-bottom: .8rem;
-      letter-spacing: .1em;
-    }
-
-    /* ─── Firma: la luce del giorno ─────────────────────────────────────── */
-    .luce {
-      background: var(--sabbia);
-      position: relative
-    }
-
-    .luce__box {
-      position: relative;
-      border-radius: var(--bordo);
-      overflow: hidden;
-      aspect-ratio: 16/9
-    }
-
-    @media(max-width:640px) {
-      .luce__box {
-        aspect-ratio: 4/3
-      }
-    }
-
-    .luce__box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover
-    }
-
-    .luce__wash {
-      position: absolute;
-      inset: 0;
-      mix-blend-mode: multiply;
-      background: var(--wash, rgba(255, 236, 210, .35));
-      transition: background 700ms ease-out;
-    }
-
-    .luce__vel {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 45%, rgba(24, 28, 26, .55));
-    }
-
-    .luce__arco {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%
-    }
-
-    .luce__arco path {
-      fill: none;
-      stroke: rgba(255, 254, 252, .5);
-      stroke-width: .8;
-      stroke-dasharray: 2 4
-    }
-
-    .luce__sole {
-      fill: #FFF6E4;
-      transition: opacity 700ms ease-out
-    }
-
-    .luce__ora {
-      position: absolute;
-      left: clamp(1.2rem, 4vw, 2.6rem);
-      bottom: clamp(1.2rem, 4vw, 2.4rem);
-      color: var(--bianco);
-    }
-
-    .luce__ora b {
-      display: block;
-      font-family: var(--display);
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      font-weight: 300
-    }
-
-    .luce__ora span {
-      font-size: .72rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      opacity: .85
-    }
-
-    .luce__slider {
-      margin-top: 2.2rem;
-      display: flex;
-      align-items: center;
-      gap: 1.2rem
-    }
-
-    .luce__slider span {
-      font-size: .66rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--mirto);
-      white-space: nowrap
-    }
-
-    input[type=range] {
-      -webkit-appearance: none;
-      appearance: none;
-      flex: 1;
-      height: 1px;
-      background: var(--greige);
-      border-radius: 2px;
-      cursor: ew-resize;
-    }
-
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--avorio);
-      border: 1px solid var(--mirto);
-      transition: transform var(--t);
-    }
-
-    input[type=range]::-moz-range-thumb {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--avorio);
-      border: 1px solid var(--mirto);
-    }
-
-    input[type=range]:hover::-webkit-slider-thumb {
-      transform: scale(1.25)
-    }
-
-    /* ─── Esperienze ─────────────────────────────────────────────────────── */
-    .esperienze {
-      display: grid;
-      gap: 0
-    }
-
-    @media(min-width:760px) {
-      .esperienze {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: clamp(2rem, 6vw, 6rem)
-      }
-    }
-
-    .card {
-      padding: 2.6rem 0;
-      border-top: 1px solid var(--greige)
-    }
-
-    .card h3 {
-      margin-bottom: .9rem
-    }
-
-    .card p {
+    .sp-card p {
       margin: 0;
-      font-size: .97em
+      font-size: .875rem;
+      line-height: 1.5
     }
 
     /* ─── Servizi ────────────────────────────────────────────────────────── */
@@ -859,19 +675,19 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      columns: 1;
-      column-gap: clamp(2rem, 7vw, 6rem)
+      columns: 2;
+      column-gap: clamp(1.4rem, 4vw, 4rem)
     }
 
-    @media(min-width:640px) {
+    @media(min-width:900px) {
       .servizi {
-        columns: 2
+        columns: 3
       }
     }
 
     .servizi li {
       break-inside: avoid;
-      padding: .85rem 0 .85rem 1.6rem;
+      padding: .55rem 0 .55rem 1.1rem;
       position: relative;
       border-bottom: 1px solid rgba(191, 182, 166, .4);
     }
@@ -880,90 +696,16 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 1.55em;
+      top: 1.35em;
       width: 6px;
       height: 1px;
       background: var(--mirto-chiaro);
     }
 
-    /* ─── Tariffe ────────────────────────────────────────────────────────── */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .95em
-    }
-
-    caption {
-      text-align: left;
-      font-size: .7rem;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: var(--mirto);
-      padding-bottom: 1.6rem
-    }
-
-    th,
-    td {
-      text-align: left;
-      padding: 1.25rem .8rem;
-      border-bottom: 1px solid rgba(191, 182, 166, .55)
-    }
-
-    th {
-      font-weight: 400;
-      font-size: .68rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--mirto)
-    }
-
-    td:first-child {
-      font-family: var(--display);
-      font-size: 1.2rem;
-      color: var(--inchiostro)
-    }
-
-    td:nth-child(2) {
-      white-space: nowrap
-    }
-
-    tbody tr:last-child td {
-      border-bottom: 1px solid var(--greige)
-    }
-
-    .nota {
-      margin-top: 1.8rem;
-      font-size: .9em;
-      max-width: 60ch
-    }
-
-    @media(max-width:560px) {
-
-      th:nth-child(3),
-      td:nth-child(3) {
-        display: none
-      }
-
-      .min-mobile {
-        display: block;
-        font-size: .7rem;
-        letter-spacing: .12em;
-        text-transform: uppercase;
-        color: var(--mirto-chiaro);
-        margin-top: .3rem
-      }
-    }
-
-    @media(min-width:561px) {
-      .min-mobile {
-        display: none
-      }
-    }
-
     /* ─── Testimonianze ──────────────────────────────────────────────────── */
     .voci {
       display: grid;
-      gap: clamp(3rem, 7vw, 5rem)
+      gap: clamp(1.8rem, 4vw, 3rem)
     }
 
     @media(min-width:860px) {
@@ -978,8 +720,8 @@
 
     blockquote p {
       font-family: var(--display);
-      font-size: clamp(1.2rem, 2.2vw, 1.5rem);
-      line-height: 1.6;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      line-height: 1.55;
       color: var(--inchiostro);
       font-style: italic;
     }
@@ -1017,7 +759,7 @@
       grid-template-columns: 1fr auto;
       gap: .4rem 1.5rem;
       align-items: baseline;
-      padding: 1.15rem 0;
+      padding: .8rem 0;
       border-bottom: 1px solid rgba(248, 245, 239, .18);
     }
 
@@ -1054,8 +796,8 @@
     /* ─── Form ───────────────────────────────────────────────────────────── */
     .form-griglia {
       display: grid;
-      gap: 1.6rem 1.8rem;
-      margin-top: 2.6rem
+      gap: 1.15rem 1.4rem;
+      margin-top: 1.9rem
     }
 
     @media(min-width:700px) {
@@ -1160,7 +902,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: .85rem clamp(1rem, 4vw, 2.5rem);
+      padding: .8rem clamp(1rem, 4vw, 2.5rem);
+      padding-bottom: calc(.8rem + env(safe-area-inset-bottom));
       transform: translateY(105%);
       transition: transform var(--t);
     }
@@ -1234,13 +977,13 @@
 
     /* ─── Footer ─────────────────────────────────────────────────────────── */
     footer.piede {
-      padding-block: clamp(4rem, 8vw, 6rem) calc(6.5rem + env(safe-area-inset-bottom));
+      padding-block: clamp(2.8rem, 6vw, 4.5rem) calc(6.5rem + env(safe-area-inset-bottom));
       background: var(--sabbia)
     }
 
     .piede__griglia {
       display: grid;
-      gap: 2.6rem
+      gap: 1.8rem
     }
 
     @media(min-width:760px) {
@@ -1277,11 +1020,120 @@
 
     .piede small {
       display: block;
-      margin-top: 3.4rem;
-      padding-top: 1.8rem;
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
       border-top: 1px solid var(--greige);
       font-size: .75rem;
       opacity: .75
+    }
+
+
+    /* ─── Ottimizzazioni mobile ──────────────────────────────────────────── */
+    @media(max-width:640px) {
+
+      /* Hero: meno aria, testo che respira senza sforare */
+      .hero {
+        min-height: 92svh
+      }
+
+      .hero h1 {
+        max-width: 14ch;
+        font-size: clamp(2rem, 9.5vw, 2.8rem)
+      }
+
+      .hero__glass-card {
+        width: 100%;
+        border-radius: 16px
+      }
+
+      .hero__cta {
+        flex-direction: column;
+        gap: .6rem
+      }
+
+      .hero__cta .btn {
+        width: 100%;
+        text-align: center
+      }
+
+      .hero__sub {
+        font-size: .72rem;
+        letter-spacing: .14em
+      }
+
+      /* Orb sfocati: pesanti da comporre sui telefoni */
+      .liquid-orb-1 {
+        width: 220px;
+        height: 220px;
+        filter: blur(46px)
+      }
+
+      .liquid-orb-2 {
+        width: 240px;
+        height: 240px;
+        filter: blur(46px)
+      }
+
+      .hero__scroll {
+        display: none
+      }
+
+      /* Dati chiave: tre colonne strette ma leggibili */
+      .dati span {
+        font-size: .62rem;
+        letter-spacing: .12em;
+        margin-top: .35rem
+      }
+
+      /* Card degli spazi */
+      .sp-card h3 {
+        font-size: 1rem
+      }
+
+      .sp-card p {
+        font-size: .8rem;
+        line-height: 1.45
+      }
+
+      .sp-card__foto {
+        margin-bottom: .6rem
+      }
+
+      /* Liste e citazioni */
+      .servizi li {
+        font-size: .88rem;
+        padding: .45rem 0 .45rem 1rem
+      }
+
+      .dist li {
+        padding: .7rem 0
+      }
+
+      .dist em {
+        font-size: .74rem
+      }
+
+      /* Form: campi comodi da toccare, niente zoom su iOS */
+      .campo input,
+      .campo select,
+      .campo textarea {
+        font-size: 16px;
+        padding: .8rem 0
+      }
+
+      .campo textarea {
+        min-height: 88px
+      }
+
+      /* Barra fissa: un solo bottone a tutta larghezza */
+      .sticky .btn {
+        padding: .85rem 1rem;
+        font-size: .66rem
+      }
+
+      .piede h3 {
+        font-size: 1.35rem
+      }
     }
 
     /* ─── Rivelazione allo scroll ────────────────────────────────────────── */
@@ -1364,55 +1216,17 @@
     <section class="sezione" id="spazi" style="padding-top:0">
       <div class="wrap">
         <p class="eyebrow rivela">Gli spazi</p>
-        <div id="spaziLista"></div>
+        <div class="griglia-spazi" id="spaziLista"></div>
       </div>
     </section>
 
-    <!-- ─── FIRMA: LA LUCE DEL GIORNO ────────────────────────────────── -->
-    <section class="sezione luce" aria-labelledby="tit-luce">
-      <div class="wrap">
-        <p class="eyebrow rivela">Dall'alba al tramonto</p>
-        <h2 id="tit-luce" class="rivela" style="max-width:16ch;margin-bottom:2.6rem">La stessa casa, sei volte al giorno
-        </h2>
-        <div class="luce__box rivela">
-          <div class="foto" data-foto="luce" style="position:absolute;inset:0;border-radius:0"></div>
-          <div class="luce__wash" id="luceWash"></div>
-          <div class="luce__vel"></div>
-          <svg class="luce__arco" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true">
-            <path id="arco" d="M4,50 Q50,-2 96,50"></path>
-          </svg>
-          <svg class="luce__arco" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true">
-            <circle class="luce__sole" id="sole" r="1.6" cx="4" cy="50"></circle>
-          </svg>
-          <div class="luce__ora">
-            <b id="luceOra">06:10</b>
-            <span id="luceDidascalia">Alba sul golfo</span>
-          </div>
-        </div>
-        <div class="luce__slider rivela">
-          <span aria-hidden="true">Alba</span>
-          <input type="range" id="luceRange" min="0" max="100" value="8"
-            aria-label="Ora del giorno, dall'alba al tramonto">
-          <span aria-hidden="true">Notte</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- ─── 4. ESPERIENZE ────────────────────────────────────────────── -->
-    <section class="sezione" aria-labelledby="tit-esperienze">
-      <div class="wrap">
-        <p class="eyebrow rivela">Intorno</p>
-        <h2 id="tit-esperienze" class="rivela" style="max-width:14ch;margin-bottom:3rem">Quello che c'è, a portata di
-          sandali</h2>
-        <div class="esperienze" id="esperienzeLista"></div>
-      </div>
-    </section>
 
     <!-- ─── 5. SERVIZI ───────────────────────────────────────────────── -->
     <section class="sezione" style="padding-top:0" aria-labelledby="tit-servizi">
       <div class="wrap">
         <p class="eyebrow rivela">Compreso nel soggiorno</p>
-        <h2 id="tit-servizi" class="rivela" style="margin-bottom:3rem">Servizi e comfort</h2>
+        <h2 id="tit-servizi" class="rivela" style="margin-bottom:1.6rem">Servizi e comfort</h2>
         <ul class="servizi rivela" id="serviziLista"></ul>
       </div>
     </section>
@@ -1421,7 +1235,7 @@
     <section class="sezione" style="background:var(--sabbia)" aria-labelledby="tit-voci">
       <div class="wrap">
         <p class="eyebrow rivela">Chi c'è stato</p>
-        <h2 id="tit-voci" class="rivela" style="margin-bottom:3.4rem">Tre stagioni, tre voci</h2>
+        <h2 id="tit-voci" class="rivela" style="margin-bottom:2rem">Tre stagioni, tre voci</h2>
         <div class="voci" id="vociLista"></div>
       </div>
     </section>
@@ -1430,7 +1244,7 @@
     <section class="sezione posizione" aria-labelledby="tit-posizione">
       <div class="wrap">
         <p class="eyebrow rivela">Dove siamo</p>
-        <h2 id="tit-posizione" class="rivela" style="max-width:15ch;margin-bottom:2.8rem">Geremeas, costa sud-orientale
+        <h2 id="tit-posizione" class="rivela" style="max-width:15ch;margin-bottom:1.8rem">Geremeas, costa sud-orientale
         </h2>
         <div style="display:grid;gap:clamp(2rem,6vw,5rem);grid-template-columns:1fr" class="rivela">
           <ul class="dist" id="distanzeLista"></ul>
@@ -1582,45 +1396,21 @@
 
       /* ── Gli spazi ──────────────────────────────────────────────────── */
       const SPAZI = [
-        {
-          foto: 'soggiorno', titolo: 'Il soggiorno',
-          testo: 'Un unico ambiente chiaro che si apre sul portico. Divani in lino, un tavolo grande che regge sei persone e le carte nautiche, ventilatore a soffitto e porte scorrevoli che restano aperte da giugno a settembre.'
-        },
-        {
-          foto: 'camere', titolo: 'Le camere',
-          testo: 'Tre camere: una matrimoniale con vista frontale sul mare, una matrimoniale sul giardino, una con due letti singoli. Lenzuola di lino, armadi capienti, zanzariere ovunque. Due bagni, uno con doccia esterna dedicata.'
-        },
-        {
-          foto: 'porticato', titolo: 'Il porticato',
-          testo: 'Corre su due lati della casa, così l\'ombra c\'è sempre da qualche parte: la mattina a est per la colazione, il pomeriggio a ovest per il dopo-spiaggia. È qui che si passa la maggior parte del tempo.'
-        },
-        {
-          foto: 'esterni', titolo: 'Il giardino e il barbecue',
-          testo: 'Ginepri, mirto e un prato di sabbia compatta. Il barbecue in muratura è sotto la tettoia, con piano d\'appoggio e lavello: d\'estate la cucina si sposta qui e ci resta fino a settembre.'
-        },
-        {
-          foto: 'cucina', titolo: 'La cucina',
-          testo: 'In muratura, con piano in pietra, forno, lavastoviglie e tutto quello che serve per cucinare davvero. La spesa si fa al mercato di Quartu o al minimarket del paese, a un chilometro.'
-        },
-        {
-          foto: 'spiaggia', titolo: 'L\'accesso alla spiaggia',
-          testo: 'Un sentiero privato scende dal fondo del giardino alla sabbia in meno di un minuto. Si va scalzi, con l\'asciugamano in mano, e si torna per pranzo senza mai prendere la macchina.'
-        }
+        { foto: 'soggiorno', titolo: 'Il soggiorno', testo: 'Un ambiente unico che si apre sul portico, con un tavolo che regge sei persone.' },
+        { foto: 'camere', titolo: 'Le camere', testo: 'Tre camere, sei posti letto veri. Una matrimoniale guarda il mare di fronte.' },
+        { foto: 'porticato', titolo: 'Il porticato', testo: "Corre su due lati: l'ombra c’è sempre, dalla colazione al dopo-spiaggia." },
+        { foto: 'esterni', titolo: 'Giardino e barbecue', testo: 'Ginepri, mirto e il barbecue in muratura sotto la tettoia, con lavello.' },
+        { foto: 'cucina', titolo: 'La cucina', testo: 'In muratura, piano in pietra, forno e lavastoviglie. Per cucinare davvero.' },
+        { foto: 'spiaggia', titolo: 'Accesso alla spiaggia', testo: 'Un sentiero privato dal fondo del giardino alla sabbia, in meno di un minuto.' }
       ];
-      $('#spaziLista').innerHTML = SPAZI.map((s, i) =>
-        '<article class="spazio rivela' + (i % 2 ? ' spazio--inv' : '') + '">' +
-        '<div class="spazio__foto" data-foto="' + s.foto + '"></div>' +
-        '<div class="spazio__testo">' +
-        '<span class="numero">0' + (i + 1) + '</span>' +
+      $('#spaziLista').innerHTML = SPAZI.map(s =>
+        '<article class="sp-card rivela">' +
+        '<div class="sp-card__foto" data-foto="' + s.foto + '"></div>' +
         '<h3>' + esc(s.titolo) + '</h3><p>' + esc(s.testo) + '</p>' +
-        '</div>' +
         '</article>').join('');
       $$('#spaziLista [data-foto]').forEach(el => montaFoto(el, el.dataset.foto));
 
       /* ── Esperienze, servizi, voci, distanze ───────────────── */
-      $('#esperienzeLista').innerHTML = VILLA.esperienze
-        .map(e => '<article class="card rivela"><h3>' + esc(e.titolo) + '</h3><p>' + esc(e.testo) + '</p></article>').join('');
-
       $('#serviziLista').innerHTML = VILLA.servizi.map(s => '<li>' + esc(s) + '</li>').join('');
 
       $('#vociLista').innerHTML = VILLA.testimonianze.map(v =>
@@ -1663,41 +1453,7 @@
       window.addEventListener('scroll', () => { if (!tick) { requestAnimationFrame(suScroll); tick = true; } }, { passive: true });
       suScroll();
 
-      /* ── La luce del giorno ─────────────────────────────────────────── */
-      const arco = $('#arco'), sole = $('#sole'), range = $('#luceRange');
-      const ora = $('#luceOra'), didasc = $('#luceDidascalia'), wash = $('#luceWash');
-      const MOMENTI = [
-        { p: 0, ora: '05:50', testo: 'Prima luce, mare piatto', col: [255, 214, 178, .42] },
-        { p: 20, ora: '08:30', testo: 'Colazione a est', col: [255, 240, 214, .28] },
-        { p: 45, ora: '13:00', testo: 'Ombra lunga sul portico', col: [255, 252, 240, .14] },
-        { p: 70, ora: '18:15', testo: 'Rientro dalla spiaggia', col: [255, 224, 180, .32] },
-        { p: 88, ora: '20:40', testo: 'Tramonto dietro i monti', col: [240, 168, 124, .46] },
-        { p: 100, ora: '22:30', testo: 'Cena sotto il portico', col: [64, 84, 110, .55] }
-      ];
-      function mix(a, b, t) { return a.map((v, i) => v + (b[i] - v) * t); }
-      function aggiornaLuce(v) {
-        let i = 0;
-        while (i < MOMENTI.length - 2 && v > MOMENTI[i + 1].p) i++;
-        const A = MOMENTI[i], B = MOMENTI[i + 1];
-        const t = Math.min(1, Math.max(0, (v - A.p) / (B.p - A.p)));
-        const col = mix(A.col, B.col, t);
-        wash.style.background = 'rgba(' + Math.round(col[0]) + ',' + Math.round(col[1]) + ',' + Math.round(col[2]) + ',' + col[3].toFixed(2) + ')';
-        const rif = t < 0.5 ? A : B;
-        ora.textContent = rif.ora;
-        didasc.textContent = rif.testo;
-        if (arco.getTotalLength) {
-          const L = arco.getTotalLength();
-          const pt = arco.getPointAtLength(L * Math.min(v, 96) / 100);
-          sole.setAttribute('cx', pt.x);
-          sole.setAttribute('cy', pt.y);
-          sole.style.opacity = v > 94 ? 0.15 : 1;
-        }
-        range.setAttribute('aria-valuetext', rif.ora + ', ' + rif.testo);
-      }
-      range.addEventListener('input', e => aggiornaLuce(+e.target.value));
-      aggiornaLuce(+range.value);
-
-      /* ── Form ───────────────────────────────────────────────────────── */
+      /* ── Form ─────────────────────────────────────────────────────── */
       const modulo = $('#modulo'), esito = $('#esito');
       const oggi = new Date().toISOString().split('T')[0];
       $('#arrivo').min = oggi; $('#partenza').min = oggi;
