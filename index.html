@@ -129,6 +129,7 @@
 
       --t: 520ms cubic-bezier(.22, .61, .36, 1);
       --bordo: 6px;
+      --pill: 999px;
       --gutter: clamp(1.25rem, 5vw, 5rem);
       --sezione: clamp(3.2rem, 7vw, 6rem);
     }
@@ -890,62 +891,224 @@
       color: #8A3B2A
     }
 
+    /* ─── Barra superiore in liquid glass ────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      padding: 1.2rem clamp(1.1rem, 4vw, 2.75rem);
+      color: var(--bianco);
+      transition: background var(--t), color var(--t), padding var(--t),
+        box-shadow var(--t), margin var(--t), border-radius var(--t);
+    }
+
+    /* Dopo la hero diventa una pillola di vetro sospesa */
+    .nav--ridotta {
+      margin: .7rem clamp(.6rem, 2.5vw, 1.4rem);
+      border-radius: var(--pill);
+      background: rgba(248, 245, 239, .78);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid rgba(255, 254, 252, .5);
+      color: var(--inchiostro);
+      box-shadow: 0 10px 40px -18px rgba(43, 46, 41, .4);
+      padding: .5rem .55rem .5rem 1.5rem;
+    }
+
+    .nav__logo {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 400;
+      letter-spacing: .01em;
+      text-decoration: none;
+      white-space: nowrap;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, .35);
+    }
+
+    .nav--ridotta .nav__logo {
+      text-shadow: none
+    }
+
+    .nav__logo em {
+      font-style: italic;
+      font-weight: 300
+    }
+
+    .nav__links {
+      display: flex;
+      gap: clamp(1.1rem, 2.6vw, 2rem);
+      margin-inline: auto
+    }
+
+    .nav__links a {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: .82;
+      padding: .5rem 0;
+      transition: opacity var(--t)
+    }
+
+    .nav__links a:hover,
+    .nav__links a:focus-visible {
+      opacity: 1
+    }
+
+    .nav__cta {
+      padding: .7rem 1.4rem;
+      font-size: .66rem;
+      flex-shrink: 0
+    }
+
+    .nav--ridotta .nav__cta {
+      background: var(--mirto);
+      border-color: transparent;
+      color: var(--avorio);
+      box-shadow: none
+    }
+
+    .nav--ridotta .nav__cta:hover {
+      background: var(--inchiostro);
+      color: var(--avorio);
+      transform: none
+    }
+
+    @media(max-width:860px) {
+      .nav__links {
+        display: none
+      }
+
+      .nav {
+        justify-content: space-between
+      }
+    }
+
+    /* Le ancore non finiscono sotto la barra */
+    :target,
+    section[id],
+    header[id] {
+      scroll-margin-top: 5.5rem
+    }
+
     /* ─── Barra sticky + WhatsApp ────────────────────────────────────────── */
     .sticky {
       position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 60;
-      background: rgba(248, 245, 239, .94);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid var(--greige);
+      z-index: 90;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: clamp(1rem, 3vw, 2rem);
-      padding: .8rem clamp(1rem, 4vw, 2.5rem);
-      padding-bottom: calc(.8rem + env(safe-area-inset-bottom));
-      transform: translateY(105%);
-      transition: transform var(--t);
+      justify-content: space-between;
+      gap: 1.2rem;
+      margin: 0 clamp(.6rem, 2.5vw, 1.4rem) calc(clamp(.6rem, 2.5vw, 1.1rem) + env(safe-area-inset-bottom));
+      padding: .75rem .75rem .75rem 1.8rem;
+      background: rgba(38, 42, 38, .82);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid rgba(255, 254, 252, .16);
+      color: rgba(248, 245, 239, .92);
+      border-radius: var(--pill);
+      box-shadow: 0 18px 50px -20px rgba(0, 0, 0, .6);
+      transform: translateY(150%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .55s cubic-bezier(.22, .61, .36, 1), opacity .45s ease;
     }
 
     .sticky[data-visibile="si"] {
-      transform: translateY(0)
+      transform: none;
+      opacity: 1;
+      pointer-events: auto
     }
 
-    .sticky p {
-      margin: 0;
-      font-size: .72rem;
-      letter-spacing: .18em;
+    .sticky__testo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+      min-width: 0;
+      text-align: left
+    }
+
+    .sticky__testo strong {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--bianco)
+    }
+
+    .sticky__testo>span {
+      font-size: .64rem;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--mirto)
+      color: rgba(248, 245, 239, .6);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .sticky .btn {
-      padding: .75rem 1.5rem;
-      font-size: .68rem
+    .sticky__corto {
+      display: none
     }
 
-    @media(max-width:620px) {
-      .sticky p {
+    .sticky__cta {
+      background: var(--avorio);
+      color: var(--inchiostro);
+      border-color: transparent;
+      padding: .8rem 1.5rem;
+      font-size: .66rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      --c: var(--inchiostro);
+    }
+
+    .sticky__cta:hover,
+    .sticky__cta:focus-visible {
+      background: var(--bianco);
+      color: var(--inchiostro)
+    }
+
+    @media(max-width:680px) {
+      .sticky {
+        padding: .6rem .6rem .6rem 1.2rem;
+        gap: .7rem;
+        border-radius: 22px
+      }
+
+      .sticky__testo strong {
+        font-size: .98rem;
+        white-space: nowrap
+      }
+
+      .sticky__lungo {
         display: none
       }
 
-      .sticky {
-        justify-content: stretch
+      .sticky__corto {
+        display: inline
       }
 
-      .sticky .btn {
-        flex: 1;
-        text-align: center
+      .sticky__testo>span {
+        display: none
+      }
+
+      .sticky__cta {
+        padding: .7rem 1.1rem;
+        font-size: .62rem;
+        letter-spacing: .14em
       }
     }
 
     .wa {
       position: fixed;
       right: clamp(1rem, 3vw, 2rem);
-      bottom: calc(4.6rem + env(safe-area-inset-bottom));
+      bottom: calc(5.6rem + env(safe-area-inset-bottom));
       z-index: 61;
       width: 52px;
       height: 52px;
@@ -1195,12 +1358,6 @@
         min-height: 88px
       }
 
-      /* Barra fissa: un solo bottone a tutta larghezza */
-      .sticky .btn {
-        padding: .85rem 1rem;
-        font-size: .66rem
-      }
-
       .piede h3 {
         font-size: 1.35rem
       }
@@ -1237,8 +1394,20 @@
 
   <a class="salta" href="#contatto">Vai al modulo di richiesta</a>
 
+  <!-- ─── BARRA SUPERIORE (liquid glass) ─────────────────────────────── -->
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#top">Villa <em>Dessì</em></a>
+    <nav class="nav__links" aria-label="Navigazione principale">
+      <a href="#introduzione">La casa</a>
+      <a href="#spazi">Gli spazi</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#posizione">Dove siamo</a>
+    </nav>
+    <a class="btn btn--glass nav__cta" href="#contatto">Verifica disponibilità</a>
+  </header>
+
   <!-- ─── 1. HERO ────────────────────────────────────────────────────── -->
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="hero__media" id="heroMedia" data-foto="hero"></div>
     <div class="hero__velo"></div>
     <div class="liquid-orb liquid-orb-1"></div>
@@ -1293,7 +1462,7 @@
 
 
     <!-- ─── 5. SERVIZI ───────────────────────────────────────────────── -->
-    <section class="sezione" style="padding-top:0" aria-labelledby="tit-servizi">
+    <section class="sezione" id="servizi" style="padding-top:0" aria-labelledby="tit-servizi">
       <div class="wrap">
         <p class="eyebrow rivela">Compreso nel soggiorno</p>
         <h2 id="tit-servizi" class="rivela" style="margin-bottom:1.6rem">Servizi e comfort</h2>
@@ -1311,7 +1480,7 @@
     </section>
 
     <!-- ─── 8. POSIZIONE ─────────────────────────────────────────────── -->
-    <section class="sezione posizione" aria-labelledby="tit-posizione">
+    <section class="sezione posizione" id="posizione" aria-labelledby="tit-posizione">
       <div class="wrap">
         <p class="eyebrow rivela">Dove siamo</p>
         <h2 id="tit-posizione" class="rivela" style="max-width:15ch;margin-bottom:1.8rem">Geremeas, costa sud-orientale
@@ -1411,9 +1580,13 @@
     </div>
   </footer>
 
-  <div class="sticky" id="barra">
-    <p>Villa Dessì · Geremeas, 50 m dal mare</p>
-    <a class="btn btn--mirto" href="#contatto">Verifica disponibilità</a>
+  <div class="sticky" id="barra" hidden>
+    <div class="sticky__testo">
+      <strong><span class="sticky__lungo">La sabbia comincia qui.</span><span class="sticky__corto">50 m dal
+          mare</span></strong>
+      <span>Geremeas, Sardegna · 6 ospiti · 3 camere</span>
+    </div>
+    <a class="btn sticky__cta" href="#contatto">Verifica disponibilità</a>
   </div>
 
   <a class="wa" id="linkWhatsapp" href="#" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
@@ -1459,7 +1632,7 @@
       $('#piedeIndirizzo').textContent = VILLA.contatti.indirizzo;
       $('#anno').textContent = new Date().getFullYear();
       $('#linkMappa').href = VILLA.mappaLink;
-      $('#barra p').textContent = VILLA.nome + ' · ' + VILLA.localita;
+      $('#barra .sticky__testo > span').textContent = VILLA.sottotitolo;
 
       $('#datiChiave').innerHTML = VILLA.datiChiave
         .map(d => '<div><b>' + esc(d.numero) + '</b><span>' + esc(d.etichetta) + '</span></div>').join('');
@@ -1509,16 +1682,32 @@
       }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
       $$('.rivela').forEach(el => oss.observe(el));
 
-      /* ── Parallax appena percettibile + barra sticky ────────────────── */
+      /* ── Parallax + barra superiore e barra inferiore ────────────────
+         La barra in alto si stringe a pillola di vetro dopo la hero.
+         Quella in basso entra dopo la hero e si ritira quando il modulo
+         di richiesta e' gia' a schermo: li' il pulsante c'e' gia'.      */
       const media = $('#heroMedia'), barra = $('#barra'), waBtn = $('#linkWhatsapp');
+      const nav = $('#nav'), contatto = $('#contatto');
       const moto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let tick = false;
+      let tick = false, contattoVisibile = false;
+
+      if (contatto) {
+        new IntersectionObserver(([e]) => {
+          contattoVisibile = e.isIntersecting;
+          suScroll();
+        }, { threshold: 0 }).observe(contatto);
+      }
+
       function suScroll() {
-        const y = window.scrollY;
-        if (!moto && y < window.innerHeight) media.style.transform = 'translate3d(0,' + (y * 0.14) + 'px,0)';
-        const mostra = y > window.innerHeight * 0.85 ? 'si' : 'no';
-        barra.dataset.visibile = mostra;
-        waBtn.dataset.visibile = mostra;
+        const y = window.scrollY, vh = window.innerHeight;
+        if (!moto && y < vh) media.style.transform = 'translate3d(0,' + (y * 0.14) + 'px,0)';
+
+        nav.classList.toggle('nav--ridotta', y > vh * 0.7);
+
+        const mostra = y > vh * 0.9 && !contattoVisibile;
+        if (mostra && barra.hidden) barra.hidden = false;
+        barra.dataset.visibile = mostra ? 'si' : 'no';
+        waBtn.dataset.visibile = mostra ? 'si' : 'no';
         tick = false;
       }
       window.addEventListener('scroll', () => { if (!tick) { requestAnimationFrame(suScroll); tick = true; } }, { passive: true });
