@@ -8,7 +8,7 @@
   <meta name="description"
     content="Villa privata a Geremeas, 50 metri dal mare. Tre camere, sei ospiti, accesso privato alla spiaggia. Disponibilità su richiesta.">
   <meta property="og:title" content="Villa Dessì — Geremeas, Sardegna">
-  <meta property="og:description" content="Cinquanta metri di macchia mediterranea tra il porticato e la sabbia.">
+  <meta property="og:description" content="Una casa di famiglia a Geremeas, dove il giardino finisce nella sabbia.">
   <meta property="og:image" content="immagini/hero-villa-mare.jpg">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
       /* --- Identità ------------------------------------------------------- */
       nome: "Villa Dessì",
       localita: "Geremeas, Sardegna",
-      headline: "Il mare a cinquanta passi",
+      headline: "La sabbia comincia qui",
       sottotitolo: "Geremeas, Sardegna · 6 ospiti · 3 camere · 2 bagni",
 
       /* --- Contatti ------------------------------------------------------- */
@@ -673,33 +673,21 @@
     /* ─── Servizi ────────────────────────────────────────────────────────── */
     .servizi {
       list-style: none;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
-      columns: 2;
-      column-gap: clamp(1.4rem, 4vw, 4rem)
-    }
-
-    @media(min-width:900px) {
-      .servizi {
-        columns: 3
-      }
+      max-width: 860px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .55rem;
     }
 
     .servizi li {
-      break-inside: avoid;
-      padding: .55rem 0 .55rem 1.1rem;
-      position: relative;
-      border-bottom: 1px solid rgba(191, 182, 166, .4);
-    }
-
-    .servizi li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 1.35em;
-      width: 6px;
-      height: 1px;
-      background: var(--mirto-chiaro);
+      padding: .42rem 1rem;
+      border: 1px solid rgba(191, 182, 166, .6);
+      border-radius: 999px;
+      font-size: .86rem;
+      line-height: 1.4
     }
 
     /* ─── Testimonianze ──────────────────────────────────────────────────── */
@@ -736,7 +724,8 @@
     /* ─── Posizione ──────────────────────────────────────────────────────── */
     .posizione {
       background: var(--mare);
-      color: rgba(248, 245, 239, .86)
+      color: rgba(248, 245, 239, .86);
+      padding-block: clamp(2.6rem, 5.5vw, 4.2rem)
     }
 
     .posizione h2,
@@ -750,38 +739,51 @@
 
     .dist {
       list-style: none;
-      margin: 0;
-      padding: 0
+      margin: 0 auto;
+      padding: 0;
+      max-width: 880px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0 clamp(1.6rem, 4vw, 3.5rem);
+    }
+
+    @media(min-width:760px) {
+      .dist {
+        grid-template-columns: 1fr 1fr
+      }
     }
 
     .dist li {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: .4rem 1.5rem;
-      align-items: baseline;
-      padding: .8rem 0;
-      border-bottom: 1px solid rgba(248, 245, 239, .18);
+      padding: .6rem 0;
+      border-bottom: 1px solid rgba(248, 245, 239, .16);
     }
 
     .dist b {
       font-weight: 400;
       font-family: var(--display);
-      font-size: 1.2rem
-    }
-
-    .dist em {
-      grid-column: 1/-1;
-      font-style: normal;
-      font-size: .8rem;
-      opacity: .62;
-      letter-spacing: .04em
+      font-size: 1.08rem
     }
 
     .dist span {
-      font-size: .78rem;
-      letter-spacing: .18em;
+      font-size: .7rem;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      white-space: nowrap
+      white-space: nowrap;
+      margin-left: .7rem;
+      opacity: .85
+    }
+
+    .dist em {
+      display: block;
+      font-style: normal;
+      font-size: .74rem;
+      opacity: .58;
+      letter-spacing: .03em;
+      margin-top: .05rem
+    }
+
+    .posizione__cta {
+      margin: clamp(1.5rem, 3vw, 2.2rem) 0 0
     }
 
     .posizione a.btn {
@@ -900,8 +902,8 @@
       border-top: 1px solid var(--greige);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      justify-content: center;
+      gap: clamp(1rem, 3vw, 2rem);
       padding: .8rem clamp(1rem, 4vw, 2.5rem);
       padding-bottom: calc(.8rem + env(safe-area-inset-bottom));
       transform: translateY(105%);
@@ -1028,6 +1030,74 @@
     }
 
 
+
+    /* ─── Simmetria: tutto sull'asse centrale della pagina ───────────────── */
+    .sezione,
+    footer.piede {
+      text-align: center
+    }
+
+    .stretta {
+      max-width: 62ch;
+      margin-inline: auto
+    }
+
+    .sezione h2,
+    .sezione h3,
+    .sezione p,
+    .sezione .eyebrow,
+    .piede h3,
+    .piede p,
+    .piede small {
+      margin-inline: auto
+    }
+
+    .dati div {
+      text-align: center
+    }
+
+    .sp-card p {
+      max-width: 34ch;
+      margin-inline: auto
+    }
+
+    .voci blockquote p {
+      margin-inline: auto
+    }
+
+    /* Form: etichette centrate sopra campi a tutta larghezza */
+    .form-griglia {
+      text-align: center
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+      text-align: center
+    }
+
+    .campo textarea {
+      text-align: left
+    }
+
+    .consenso {
+      justify-content: center;
+      text-align: left;
+      max-width: 42ch;
+      margin-inline: auto
+    }
+
+    .esito {
+      margin-inline: auto;
+      max-width: 48ch
+    }
+
+    .piede ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
     /* ─── Ottimizzazioni mobile ──────────────────────────────────────────── */
     @media(max-width:640px) {
 
@@ -1101,8 +1171,8 @@
 
       /* Liste e citazioni */
       .servizi li {
-        font-size: .88rem;
-        padding: .45rem 0 .45rem 1rem
+        font-size: .8rem;
+        padding: .35rem .8rem
       }
 
       .dist li {
@@ -1179,7 +1249,7 @@
           <span class="liquid-badge__dot"></span>
           <span>Geremeas · Sardegna</span>
         </div>
-        <h1 id="heroTitolo">Il mare a cinquanta passi</h1>
+        <h1 id="heroTitolo">La sabbia comincia qui</h1>
       </div>
 
       <div class="hero__glass-card rivela">
@@ -1246,10 +1316,10 @@
         <p class="eyebrow rivela">Dove siamo</p>
         <h2 id="tit-posizione" class="rivela" style="max-width:15ch;margin-bottom:1.8rem">Geremeas, costa sud-orientale
         </h2>
-        <div style="display:grid;gap:clamp(2rem,6vw,5rem);grid-template-columns:1fr" class="rivela">
+        <div class="rivela">
           <ul class="dist" id="distanzeLista"></ul>
-          <p style="margin:0"><a class="btn" id="linkMappa" href="#" target="_blank" rel="noopener">Apri la mappa</a>
-          </p>
+          <p class="posizione__cta"><a class="btn" id="linkMappa" href="#" target="_blank" rel="noopener">Apri la
+              mappa</a></p>
         </div>
       </div>
     </section>
@@ -1257,7 +1327,7 @@
     <!-- ─── 9. FORM ──────────────────────────────────────────────────── -->
     <section class="sezione" id="contatto" aria-labelledby="tit-contatto">
       <div class="wrap">
-        <div style="max-width:820px">
+        <div style="max-width:820px;margin-inline:auto">
           <p class="eyebrow rivela">Richiesta</p>
           <h2 id="tit-contatto" class="rivela" style="max-width:16ch">Scriveteci le vostre date</h2>
           <p class="rivela" style="max-width:52ch;margin-top:1.6rem">Rispondiamo entro ventiquattro ore, con
@@ -1418,7 +1488,8 @@
         '<footer>' + esc(v.nome) + ' — ' + esc(v.provenienza) + '</footer></blockquote>').join('');
 
       $('#distanzeLista').innerHTML = VILLA.distanze.map(d =>
-        '<li><b>' + esc(d.luogo) + '</b><span>' + esc(d.valore) + '</span><em>' + esc(d.nota) + '</em></li>').join('');
+        '<li><b>' + esc(d.luogo) + '</b><span>' + esc(d.valore) + '</span>' +
+        '<em>' + esc(d.nota) + '</em></li>').join('');
 
       /* ── Footer contatti ────────────────────────────────────────────── */
       const c = VILLA.contatti;
